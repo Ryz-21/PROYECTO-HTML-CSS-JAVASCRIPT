@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../Dising/style.css">
+</head>
+<body>
+    <div id="login-container" class="login-container">
+        <h2>Login 👤</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="message"></p>
+        <p><a href="#" id="forgot-password">¿Olvidaste tu contraseña?</a></p>
+    </div>
+
+    <div id="recover-container" class="login-container hidden">
+        <h2>Recupera tu cuenta</h2>
+        <form id="recoverForm">
+            <input type="email" id="recover-email" placeholder="📧 Insertar Gmail aquí" required>
+            <button type="submit">Mandar correo</button>
+        </form>
+        <p><a href="#" id="back-to-login">Volver al login</a></p>
+    </div>
+    
+    <!-- Sistema de Inventario (Oculto al inicio) -->
+    <div id="app" class="hidden">
+        <!-- Barra de Navegación -->
+        <nav class="navbar">
+            <button data-target="dashboard">🏠 Dashboard</button>
+            <button data-target="inventory">📦 Inventario</button>
+            <button data-target="income">📥 Ingresos</button>
+            <button data-target="outcome">📤 Salidas</button>
+            <button data-target="reports">📊 Reportes</button>
+            <button data-target="settings">⚙ Configuración</button>
+            <button id="logout">🚪 Cerrar sesión</button>
+        </nav>
+    
+        <!-- Contenedor de Secciones con Scroll Horizontal -->
+        <div id="sections-container">
+            <section id="dashboard" class="section">
+                <div class="dashboard-stats">
+                    <div class="stat-card">
+                        <h4>📦 Inventario</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="inventory-bar" style="width: 70%;"></div>
+                        </div>
+                        <p id="inventory-count">70 productos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>📥 Ingresos</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill income" id="income-bar" style="width: 50%;"></div>
+                        </div>
+                        <p id="income-count">50 ingresos</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>📤 Salidas</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill outcome" id="outcome-bar" style="width: 30%;"></div>
+                        </div>
+                        <p id="outcome-count">30 salidas</p>
+                    </div>
+                </div>
+            
+                <form>
+                    <h4>Buscar producto 🖥️</h4><br>
+                    <input class="inputMenu" type="text" placeholder="🔍 Buscar producto"><br>
+                </form>
+            </section>
+            
+            <section id="inventory" class="section">
+                <form>
+                    <h4>Inventario 📦</h4><br>
+                    <input class="inputMenu" type="text" placeholder="🏷 Nombre del producto">
+                    <input class="inputMenu" type="number" placeholder="🔢 Cantidad disponible">
+                    <input class="inputMenu" type="number" placeholder="💰 Costo por unidad">
+                    <input class="inputMenu" type="date" placeholder="📅 Fecha de ingreso">
+                    <input class="inputMenu" type="text" placeholder="📄 Descripción o categoría"><br>
+                    <button class="buttonMenu" type="submit">Guardar</button>
+                </form>
+            </section>
+    
+            <section id="income" class="section">
+                <form>
+                    <h4>Ingresos 📥</h4><br>
+                    <input class="inputMenu" type="text" placeholder="🔍 Nombre del producto">
+                    <input class="inputMenu" type="number" placeholder="🔢 Cantidad ingresada">
+                    <input class="inputMenu" type="number" placeholder="💵 Precio de compra">
+                    <input class="inputMenu" type="text" placeholder="🏢 Proveedor">
+                    <input class="inputMenu" type="date" placeholder="📅 Fecha de ingreso">
+                    <input class="inputMenu" type="text" placeholder="📝 Notas adicionales"><br>
+                    <button class="buttonMenu" type="submit">Registrar</button>
+                </form>
+            </section>
+    
+            <section id="outcome" class="section">
+                <form>
+                    <h4>Salidas 📤</h4><br>
+                    <input class="inputMenu" type="text" placeholder="🔍 Nombre del producto">
+                    <input class="inputMenu" type="number" placeholder="🔢 Cantidad retirada">
+                    <input class="inputMenu" type="number" placeholder="💲 Precio de venta">
+                    <input class="inputMenu" type="text" placeholder="🏢 Cliente/Destinatario">
+                    <input class="inputMenu" type="date" placeholder="📅 Fecha de salida">
+                    <input class="inputMenu" type="text" placeholder="📝 Notas adicionales"><br>
+                    <button class="buttonMenu" type="submit">Registrar</button>
+                </form>
+            </section>
+    
+            <section id="reports" class="section">
+                <form>
+                    <h4>Reportes 📑</h4><br>
+                    <input class="inputMenu" type="date" placeholder="📅 Fecha inicial">
+                    <input class="inputMenu" type="date" placeholder="📅 Fecha final">
+                    <select class="inputMenu">
+                        <option value="">📊 Tipo de reporte</option>
+                        <option value="income">Ingresos</option>
+                        <option value="outcome">Salidas</option>
+                        <option value="inventory">Inventario</option>
+                    </select><br>
+                    <button class="buttonMenu" type="submit">Generar Reporte</button>
+                </form>
+            </section>
+    
+            <section id="settings" class="section">
+                <form>
+                    <h4>Tema</h4><br>
+                    <div class="theme-selector">
+                        <div class="theme-box" data-theme="air">🌬️</div>
+                        <div class="theme-box light-mode" data-theme="light">☀️</div>
+                        <div class="theme-box dark-mode" data-theme="dark">🌙</div>
+                    </div>
+                    
+
+                    <h4>Datos personales 🌐</h4><br>
+                    <input class="inputMenu" type="text" placeholder="Nombres completos">
+                    <input class="inputMenu" type="text" placeholder="Apellidos">
+                    <input class="inputMenu" type="date" placeholder="Fecha de nacimiento">
+                    <input class="inputMenu" tyoe="text" placeholder="Insertar email"><br>
+                    <h4> Usuario 👤</h4><br>
+                    <input class="inputMenu" type="text" placeholder="Nuevo Usuario">
+                    <input class="inputMenu" type="password" placeholder="Nueva Contraseña">
+                    <input class="inputMenu" type="password" placeholder="Confirmar Contraseña"><br>
+                    <button class="buttonMenu" type="submit">Actualizar</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    
+    <script src="../Logic/script.js"></script>
+</body>
+</html>

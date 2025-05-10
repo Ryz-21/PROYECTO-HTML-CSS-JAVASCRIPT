@@ -1,0 +1,380 @@
+/* Animación del fondo para el tema Respiración */
+@keyframes backgroundAnimationRespiration {
+    0% { background-color: #87CEEB; }  /* Celeste */
+    50% { background-color: #4682B4; } /* Azul acero */
+    100% { background-color: #1E3A5F; } /* Azul profundo */
+}
+
+/* Contenedor de estadísticas */
+.dashboard-stats {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Tarjeta de cada estadística */
+.stat-card {
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 30%;
+}
+
+/* Barra de progreso */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    background: #4CAF50;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Colores específicos para cada barra */
+.progress-fill.income {
+    background: #2196F3; /* Azul para ingresos */
+}
+
+.progress-fill.outcome {
+    background: #FF5722; /* Rojo para salidas */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .dashboard-stats {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+}
+
+
+@keyframes riseFromDock {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fadeIn {
+    /* Animación de aparición con opacidad y escala */
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInApp {
+    /* Variante de fadeIn para el contenido de la app */
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#app {
+    /* Configuración inicial del contenedor principal de la app */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    animation: backgroundAnimationApp 10s infinite alternate ease-in-out;
+}
+
+#forgot-password, #back-to-login {
+    /* Estilos de los enlaces de recuperación de contraseña y regreso al login */
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#forgot-password:hover, #back-to-login:hover {
+    /* Efecto hover para los enlaces */
+    text-decoration: underline;
+}
+
+.hidden {
+    /* Clase para ocultar elementos */
+    display: none;
+}
+
+/* Estilos de la barra de navegación */
+.navbar button.active {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+html {
+    /* Permite el desplazamiento suave en la página */
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    animation: backgroundAnimationLogin 5s infinite alternate ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Estilos del contenedor de login */
+.login-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+}
+
+#recover-container {
+    /* Ajuste de posición del contenedor de recuperación de contraseña */
+    transform: translateY(-20px);
+}
+
+/* Estilos generales para los inputs */
+.inputMenu {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+}
+
+input {
+    /* Ajustes de tamaño y diseño de inputs */
+    display: block;
+    width: 130%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilos generales de los botones */
+.buttonMenu {
+    background: white;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+button {
+    background: white;
+    color: black;
+    padding: 10px;
+    width: 130%;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+p{
+    color: rgb(0, 0, 0);
+    margin-bottom: 5px;
+}
+
+h4 {
+    /* Estilo de títulos de formularios */
+    color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.inputMenu[type="date"] {
+    /* Hace que los inputs de fecha sean clickeables */
+    cursor: pointer;
+}
+
+/* Efectos hover para botones */
+.buttonMenu:hover, button:hover {
+    background: black;
+    color: white;
+    transform: scale(1.05);
+}
+
+#message {
+    /* Estilos para mensajes de alerta */
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Configuración de la barra de navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: #2c2c2c;
+    padding: 10px 0;
+}
+
+.navbar button {
+    /* Estilos de los botones de la navbar */
+    background: none;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    /* Efecto hover de la navbar */
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Contenedor principal con scroll horizontal */
+#sections-container {
+    display: flex;
+    overflow-x: auto; /* Permite desplazamiento lateral */
+    scroll-snap-type: x mandatory;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Secciones dentro del contenedor */
+.section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    padding: 20px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Estilos para formularios */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-align: left;
+    width: 80%;
+}
+
+/* Configuración global para evitar problemas de margen y padding */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Selector de tema */
+.theme-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Caja de selección de tema */
+.theme-box {
+    width: 100px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.theme-box:hover {
+    /* Efecto hover para el selector de tema */
+    transform: scale(1.1);
+}
+
+/* Tema claro */
+.light-theme {
+    background-color: white ;
+    color: black ;
+}
+
+/* Tema oscuro */
+.dark-theme {
+    animation: none ;
+    background-color: black ;
+    color: rgb(0, 0, 0) ;
+}
+
+/* Ajustes de animación para evitar sobreescritura */
+.light-theme body:not(#login-container),
+.dark-theme body:not(#login-container) {
+    animation: none !important;
+}
+
+/* Ajuste de navbar en tema claro */
+.light-theme .navbar {
+    background: #f0f0f0;
+}
+
+.light-theme .navbar button {
+    color: black;
+}
+
+.air-theme {
+    animation: backgroundAnimationRespiration 10s infinite alternate ease-in-out;
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Ajustes de secciones en tema claro */
+.light-theme .section {
+    background: #f5f5f5;
+    color: black;
+}
+
+/* Ajustes del login en tema claro */
+.light-theme .login-container {
+    background: white;
+    color: black;
+}
+
